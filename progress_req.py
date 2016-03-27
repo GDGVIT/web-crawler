@@ -7,10 +7,7 @@ def progress_timeout(pbobj):
         pbobj.pbar.pulse()
         return True
 
-class ProgressBar:
-    # Callback that toggles the text display within the progress
-    # bar trough
- 
+class ProgressBar: 
     def destroy_progress(self, widget, data=None):
         gobject.source_remove(self.timer)
         self.timer = 0
@@ -29,26 +26,24 @@ class ProgressBar:
         vbox.set_border_width(10)
         self.window.add(vbox)
         vbox.show()
-  
-        # Create a centering alignment object
+
         align = gtk.Alignment(0.5, 0.5, 0, 0)
         vbox.pack_start(align, False, False, 5)
         align.show()
 
-        # Create the ProgressBar
         self.pbar = gtk.ProgressBar()
-        self.pbar.set_fraction(0.0)
+        self.pbar.set_fraction(0.5)
+        vbox.pack_start(self.pbar,False,False,0)
         print self.pbar.get_fraction()
-        align.add(self.pbar)
+        #align.add(self.pbar)
         self.pbar.show()
 
-        # Add a timer callback to update the value of the progress bar
         self.timer = gobject.timeout_add (100, progress_timeout, self)
 
         separator = gtk.HSeparator()
         vbox.pack_start(separator, False, False, 0)
         separator.show()
-        self.pbar.set_text("\t niodsmc djf90w jdsn90d k-0dm \t")
+        self.pbar.set_text("\t url \t")
         self.pbar.pulse()
 
 
